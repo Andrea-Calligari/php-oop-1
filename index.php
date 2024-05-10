@@ -1,38 +1,6 @@
 <?php
-// Dichiarazione Classe e Istanze
- class Production{
-    public $title;
-    public $lang;
-    public $vote ;
 
-
-    // Costruttore
-     function __construct( string $_title, string $_lang, int $_vote ){
-        $this->title = ucfirst($_title);
-        $this->lang = ucfirst($_lang); 
-        $this->setRate($_vote); 
-    }
-    
-
-    // Metodo vote - (Verifica se  la variabile  é un numero e setta il valore massimo del voto a 10 e lo divide per 2, =>
-    // seno lancia un eccezione interrompendo il codice e lanciando un messaggio di errore per funzione non valida. )
-    public function setRate(float $_vote){
-
-        if($_vote <= 10 && is_numeric($_vote)){
-            return $this->vote =  $_vote / 2;
-        }else{
-            throw new InvalidArgumentException("Il voto deve essere maggiore o uguale a 10.");
-        };
-        
-    }
-};
-
-
-// Creando Istanze della Classe Product assegnando dei valori come da costruttore
-
-$enterTheVoid = new Production('enter the void', 'English', 10);
-$requiemForaDream = new Production('requiem for a dream', 'English', 10);
-//  var_dump($requiemForaDream );
+    require_once __DIR__ .  '/db.php';
 
 ?>
 <!DOCTYPE html>
